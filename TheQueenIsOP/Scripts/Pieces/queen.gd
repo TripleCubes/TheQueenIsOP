@@ -67,6 +67,9 @@ func get_pos_type(in_board_pos: Vector2i) -> PosType:
 
 	return PosType.INVALID
 
+func _ready():
+	_spawn_animation()
+
 func _process(_delta):
 	_mouse_press_process()
 	

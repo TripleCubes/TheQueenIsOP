@@ -8,6 +8,6 @@ texture_filter = 1
 script = ExtResource("1_5xk8n")
 
 [node name="Queen" type="Sprite2D" parent="."]
-position = Vector2(0, -18)
+position = Vector2(0, -19)
 scale = Vector2(2, 2)
 texture = ExtResource("1_w1ood")
