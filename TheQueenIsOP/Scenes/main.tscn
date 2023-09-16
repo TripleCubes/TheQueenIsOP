@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8i3r3u6f5fcl"]
+
+[ext_resource type="Script" path="res://Scripts/bkg.gd" id="1_ap8rq"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_jff0b"]
+[ext_resource type="PackedScene" uid="uid://e4ec5fgf272l" path="res://Scenes/Pieces/queen.tscn" id="2_hk1ly"]
+[ext_resource type="PackedScene" uid="uid://dtgn6p0ryexey" path="res://Scenes/Pieces/pawn.tscn" id="3_6iunl"]
+
+[node name="Main" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_jff0b")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Bkg" type="Node2D" parent="."]
+script = ExtResource("1_ap8rq")
+
+[node name="Pieces" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Queen" parent="Pieces" instance=ExtResource("2_hk1ly")]
+position = Vector2(125, 215)
+
+[node name="Pawn" parent="Pieces" instance=ExtResource("3_6iunl")]
+position = Vector2(125, 95)
