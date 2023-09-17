@@ -7,12 +7,21 @@ const scene_destroyed_shard: PackedScene = preload("res://Scenes/Pieces/destroye
 const scene_destroyed_shard_queen: PackedScene = preload("res://Scenes/Pieces/destroyed_shard_queen.tscn")
 var scene_destroyed: PackedScene
 
+enum Moveable {
+	NOT_MOVEABLE,
+	MOVEABLE,
+	CAN_TAKE_QUEEN,
+}
+
 var board_pos: Vector2i:
 	get:
 		return GlobalFunctions.scene_pos_to_board_pos(self.position)
 
 func move() -> void:
 	pass
+
+func moveable() -> Moveable:
+	return Moveable.NOT_MOVEABLE
 
 func destroyed_animation() -> void:
 	for i in 5:

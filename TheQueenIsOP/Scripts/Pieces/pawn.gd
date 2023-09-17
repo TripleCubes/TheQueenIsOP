@@ -45,3 +45,24 @@ func move() -> void:
 				destroyed_animation()
 			)
 	)
+
+func moveable() -> Moveable:
+	var check_pos_list: = []
+	check_pos_list.append(self.board_pos + Vector2i(0, 1))
+	check_pos_list.append(self.board_pos + Vector2i(-1, 1))
+	check_pos_list.append(self.board_pos + Vector2i(1, 1))
+
+	for check_pos in check_pos_list:
+		if not GlobalFunctions.is_in_board(check_pos):
+			continue
+
+		var piece: = GlobalFunctions.get_piece_at(check_pos)
+		if piece == GlobalVars.queen:
+			return Moveable.CAN_TAKE_QUEEN
+
+	var next_pos: = self.board_pos + Vector2i(0, 1)
+	var piece: = GlobalFunctions.get_piece_at(next_pos)
+	if piece == null:
+		return Moveable.MOVEABLE
+
+	return Moveable.NOT_MOVEABLE

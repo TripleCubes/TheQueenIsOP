@@ -35,6 +35,29 @@ func move() -> void:
 		_destroy_pieces(choosen_pos, Vector2(0, 0), false)
 		_move_animation(choosen_pos)
 
+func moveable() -> Moveable:
+	var check_pos_list: = []
+	check_pos_list.append(self.board_pos + Vector2i(-1, -2))
+	check_pos_list.append(self.board_pos + Vector2i(1, -2))
+	check_pos_list.append(self.board_pos + Vector2i(-1, 2))
+	check_pos_list.append(self.board_pos + Vector2i(1, 2))
+	check_pos_list.append(self.board_pos + Vector2i(-2, -1))
+	check_pos_list.append(self.board_pos + Vector2i(-2, 1))
+	check_pos_list.append(self.board_pos + Vector2i(2, -1))
+	check_pos_list.append(self.board_pos + Vector2i(2, 1))
+
+	for pos in check_pos_list:
+		var piece: = GlobalFunctions.get_piece_at(pos)
+		if piece == GlobalVars.queen:
+			return Moveable.CAN_TAKE_QUEEN
+		
+	for pos in check_pos_list:
+		var piece: = GlobalFunctions.get_piece_at(pos)
+		if piece == null:
+			return Moveable.MOVEABLE
+
+	return Moveable.NOT_MOVEABLE
+
 func _distance_to_queen(in_board_pos: Vector2i) -> float:
 	return Vector2(in_board_pos - GlobalVars.queen.board_pos).length()
 

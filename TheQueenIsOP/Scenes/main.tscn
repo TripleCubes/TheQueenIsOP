@@ -26,4 +26,4 @@ position = Vector2(125, 215)
 position = Vector2(95, 185)
 
 [node name="King" parent="Pieces" instance=ExtResource("5_l6ans")]
-position = Vector2(125, 65)
+position = Vector2(125, 95)
