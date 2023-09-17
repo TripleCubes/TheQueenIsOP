@@ -21,19 +21,19 @@ enum PosType {
 
 func queen_move(in_board_pos: Vector2i) -> void:
 	_destroy_pieces(in_board_pos, Vector2(0, 0), false)
-	_queen_move_shared()
+	_queen_move_shared(Consts.MOVE_TIME + Consts.MOVE_PLACE_DOWN_TIME 
+						+ Consts.MOVE_HOLD_TIME)
 	_move_animation(in_board_pos)
 
 func queen_dash(in_board_pos: Vector2i) -> void:
 	_destroy_pieces(in_board_pos, Vector2((in_board_pos - self.board_pos)).normalized(), true)
-	_queen_move_shared()
+	_queen_move_shared(Consts.DASH_TIME)
 	_move_animation_dash(in_board_pos)
 
-func _queen_move_shared() -> void:
+func _queen_move_shared(time_until_enemys_turn: float) -> void:
 	GlobalVars.queens_turn = false
 
-	var timer_0: = get_tree().create_timer(Consts.MOVE_TIME + Consts.MOVE_PLACE_DOWN_TIME 
-											+ Consts.MOVE_HOLD_TIME + 0.02)
+	var timer_0: = get_tree().create_timer(time_until_enemys_turn)
 	timer_0.timeout.connect(func():
 		EnemysTurn.decide()
 	)
