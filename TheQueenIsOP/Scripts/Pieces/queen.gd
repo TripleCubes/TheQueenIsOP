@@ -36,7 +36,7 @@ func _queen_move_shared() -> void:
 	signal_moved.emit()
 
 	var timer_0: = get_tree().create_timer(Consts.MOVE_TIME + Consts.MOVE_PLACE_DOWN_TIME 
-											+ Consts.MOVE_HOLD_TIME + Consts.AFTER_MOVE_DELAY)
+											+ Consts.MOVE_HOLD_TIME + 0.02)
 	timer_0.timeout.connect(func():
 		signal_moved.emit()
 		EnemysTurn.decide()

@@ -16,13 +16,16 @@ func _move(amount: int) -> void:
 		if piece == GlobalVars.queen:
 			continue
 			
-		var timer: = get_tree().create_timer(i * 0.1)
+		var timer: = get_tree().create_timer(i * (Consts.MOVE_TIME 
+													+ Consts.MOVE_PLACE_DOWN_TIME 
+													+ Consts.MOVE_HOLD_TIME 
+													+ 0.02))
 		timer.timeout.connect(func():
 			piece.move()
 		)
 
 	var timer_0: = get_tree().create_timer(Consts.MOVE_TIME + Consts.MOVE_PLACE_DOWN_TIME 
-											+ Consts.MOVE_HOLD_TIME + Consts.AFTER_MOVE_DELAY)
+											+ Consts.MOVE_HOLD_TIME)
 	timer_0.timeout.connect(func():
 		GlobalVars.queens_turn = true
 		GlobalVars.bkg.queue_redraw()

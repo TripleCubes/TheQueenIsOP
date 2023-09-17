@@ -95,6 +95,15 @@ func _summon_pawns() -> void:
 
 	for i in pos_list.size():
 		var pos: Vector2i = pos_list[i]
+
+		var piece: = GlobalFunctions.get_piece_at(pos)
+
+		if piece != GlobalVars.queen and piece != null:
+			continue
+
+		if piece == GlobalVars.queen:
+			GlobalVars.queen.destroyed_animation()
+
 		var timer: = get_tree().create_timer(0.1 * i)
 		timer.timeout.connect(func():
 			var pawn: = scene_pawn.instantiate()
