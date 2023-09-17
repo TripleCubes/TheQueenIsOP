@@ -18,6 +18,10 @@ func move() -> void:
 			if piece != GlobalVars.queen and piece != null:
 				cant_move = true
 				break
+
+			if not GlobalFunctions.is_in_board(check):
+				cant_move = true
+				break
 		
 		if cant_move:
 			continue

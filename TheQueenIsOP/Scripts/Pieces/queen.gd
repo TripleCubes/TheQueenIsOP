@@ -43,7 +43,7 @@ func _queen_move_shared() -> void:
 	)
 
 func get_pos_type(in_board_pos: Vector2i) -> PosType:
-	if not _is_in_board(in_board_pos):
+	if not GlobalFunctions.is_in_board(in_board_pos):
 		return PosType.INVALID
 
 	if in_board_pos == self.board_pos:
@@ -90,7 +90,3 @@ func _mouse_press_process():
 	
 	if pos_type == PosType.DASH:
 		queen_dash(mouse_board_pos)
-
-func _is_in_board(in_board_pos: Vector2i) -> bool:
-	return in_board_pos.x >= 0 and in_board_pos.y >= 0 \
-	and in_board_pos.x < Consts.BOARD_WH and in_board_pos.y < Consts.BOARD_WH

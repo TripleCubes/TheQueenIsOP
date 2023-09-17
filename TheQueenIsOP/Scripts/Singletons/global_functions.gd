@@ -27,6 +27,10 @@ func get_piece_at(in_board_pos: Vector2i) -> Piece:
 
 	return null
 
+func is_in_board(in_board_pos: Vector2i) -> bool:
+	return in_board_pos.x >= 0 and in_board_pos.y >= 0 \
+	and in_board_pos.x < Consts.BOARD_WH and in_board_pos.y < Consts.BOARD_WH
+
 func get_random_dir() -> Vector2:
 	var result: = Vector2(0, 0)
 	while result == Vector2(0, 0):
