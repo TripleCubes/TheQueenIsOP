@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8i3r3u6f5fcl"]
+[gd_scene load_steps=6 format=3 uid="uid://c8i3r3u6f5fcl"]
 
 [ext_resource type="Script" path="res://Scripts/bkg.gd" id="1_ap8rq"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_jff0b"]
 [ext_resource type="PackedScene" uid="uid://e4ec5fgf272l" path="res://Scenes/Pieces/queen.tscn" id="2_hk1ly"]
 [ext_resource type="PackedScene" uid="uid://dtgn6p0ryexey" path="res://Scenes/Pieces/pawn.tscn" id="3_6iunl"]
+[ext_resource type="PackedScene" uid="uid://bte1ymsodre1y" path="res://Scenes/Pieces/rook.tscn" id="5_oyq1f"]
 
 [node name="Main" type="Node2D"]
 texture_filter = 1
@@ -23,3 +24,6 @@ position = Vector2(125, 215)
 
 [node name="Pawn" parent="Pieces" instance=ExtResource("3_6iunl")]
 position = Vector2(125, 95)
+
+[node name="Rook" parent="Pieces" instance=ExtResource("5_oyq1f")]
+position = Vector2(35, 125)

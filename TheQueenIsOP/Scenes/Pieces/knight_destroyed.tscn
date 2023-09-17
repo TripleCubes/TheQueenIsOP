@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwngd1iarp4i6"]
+
+[ext_resource type="Texture2D" uid="uid://wsamnjdh3va7" path="res://Assets/Pieces/knight_destroyed.png" id="1_ij67g"]
+[ext_resource type="Script" path="res://Scripts/Pieces/destroyed_piece.gd" id="1_n4j2b"]
+
+[node name="KnightDestroyed" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_n4j2b")
+
+[node name="KnightDestroyed" type="Sprite2D" parent="."]
+position = Vector2(0, -17)
+scale = Vector2(2, 2)
+texture = ExtResource("1_ij67g")

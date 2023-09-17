@@ -4,17 +4,22 @@ const scene_pawn: PackedScene = preload("res://Scenes/Pieces/pawn.tscn")
 
 func decide() -> void:
 	_move(0)
-	_spawn(3)
+	# _spawn(3)
 
 func _move(amount: int) -> void:
-	for piece in GlobalVars.pieces.get_children():
+	for i in GlobalVars.pieces.get_child_count():
+		var piece: = GlobalVars.pieces.get_child(i)
+
 		if not piece is Piece:
 			continue
 			
 		if piece == GlobalVars.queen:
 			continue
 			
-		piece.move()
+		var timer: = get_tree().create_timer(i * 0.1)
+		timer.timeout.connect(func():
+			piece.move()
+		)
 
 	var timer_0: = get_tree().create_timer(Consts.MOVE_TIME + Consts.MOVE_PLACE_DOWN_TIME 
 											+ Consts.MOVE_HOLD_TIME + Consts.AFTER_MOVE_DELAY)

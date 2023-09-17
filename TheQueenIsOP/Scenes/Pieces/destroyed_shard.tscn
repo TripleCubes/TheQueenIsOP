@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cncesh67grrj1"]
 
 [ext_resource type="Script" path="res://Scripts/Pieces/destroyed_shard.gd" id="1_g2dni"]
-[ext_resource type="Texture2D" uid="uid://caxesk68adiow" path="res://Assets/Pieces/Destroyed/piece_0.png" id="2_635ig"]
+[ext_resource type="Texture2D" uid="uid://caxesk68adiow" path="res://Assets/Pieces/Shards/shard_0.png" id="2_pydsy"]
 
 [node name="DestroyedShard" type="Node2D"]
 texture_filter = 1
@@ -9,4 +9,4 @@ script = ExtResource("1_g2dni")
 
 [node name="Shard0" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
-texture = ExtResource("2_635ig")
+texture = ExtResource("2_pydsy")
