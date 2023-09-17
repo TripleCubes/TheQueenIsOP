@@ -42,7 +42,7 @@ func destroyed_animation_dir(dir: Vector2, leave_destroyed_piece: bool) -> void:
 
 func _spawn_animation():
 	var original_pos = self.position
-	self.position += Vector2(0, -20)
+	self.position += Vector2(0, -40)
 	var tween: = get_tree().create_tween()
 	tween.tween_property(self, "position", original_pos, 0.2)
 
