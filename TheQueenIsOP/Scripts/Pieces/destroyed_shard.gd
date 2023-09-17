@@ -4,7 +4,7 @@ extends Node2D
 const VELOCITY_DECREASE: float = 100
 const HEIGHT_DECREASE: float = 100
 
-@onready var sprite: Sprite2D = get_node("Shard0")
+@onready var sprite: Node2D = get_node("Shard")
 
 var h: float:
 	set(val):
@@ -17,6 +17,10 @@ var velocity: float = 20
 
 func _ready():
 	sprite.position.y = - h
+
+	var show_sprite: = "Shard"
+	show_sprite += str(randi_range(0, 2))
+	sprite.get_node(show_sprite).show()
 
 	var timer: = get_tree().create_timer(randf_range(3, 4))
 	timer.timeout.connect(queue_free)

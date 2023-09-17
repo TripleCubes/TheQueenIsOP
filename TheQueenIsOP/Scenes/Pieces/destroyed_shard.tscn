@@ -1,12 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://cncesh67grrj1"]
+[gd_scene load_steps=5 format=3 uid="uid://cncesh67grrj1"]
 
 [ext_resource type="Script" path="res://Scripts/Pieces/destroyed_shard.gd" id="1_g2dni"]
 [ext_resource type="Texture2D" uid="uid://caxesk68adiow" path="res://Assets/Pieces/Shards/shard_0.png" id="2_pydsy"]
+[ext_resource type="Texture2D" uid="uid://bulxl6m64y762" path="res://Assets/Pieces/Shards/shard_1.png" id="3_mridt"]
+[ext_resource type="Texture2D" uid="uid://cyx6wgcnj5kgm" path="res://Assets/Pieces/Shards/shard_2.png" id="4_pjf0l"]
 
 [node name="DestroyedShard" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_g2dni")
 
-[node name="Shard0" type="Sprite2D" parent="."]
+[node name="Shard" type="Node2D" parent="."]
+
+[node name="Shard0" type="Sprite2D" parent="Shard"]
+visible = false
 scale = Vector2(2, 2)
 texture = ExtResource("2_pydsy")
+
+[node name="Shard1" type="Sprite2D" parent="Shard"]
+visible = false
+scale = Vector2(2, 2)
+texture = ExtResource("3_mridt")
+
+[node name="Shard2" type="Sprite2D" parent="Shard"]
+visible = false
+scale = Vector2(2, 2)
+texture = ExtResource("4_pjf0l")

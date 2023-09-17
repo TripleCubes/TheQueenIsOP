@@ -4,6 +4,7 @@ extends Node2D
 const MOVE_HEIGHT: float = 10
 
 const scene_destroyed_shard: PackedScene = preload("res://Scenes/Pieces/destroyed_shard.tscn")
+const scene_destroyed_shard_queen: PackedScene = preload("res://Scenes/Pieces/destroyed_shard_queen.tscn")
 var scene_destroyed: PackedScene
 
 var board_pos: Vector2i:
@@ -15,7 +16,11 @@ func move() -> void:
 
 func destroyed_animation() -> void:
 	for i in 5:
-		var destroyed_shard = scene_destroyed_shard.instantiate()
+		var destroyed_shard: DestroyedShard
+		if self == GlobalVars.queen:
+			destroyed_shard = scene_destroyed_shard_queen.instantiate()
+		else:
+			destroyed_shard = scene_destroyed_shard.instantiate()
 		destroyed_shard.h = randf_range(10, 20)
 		destroyed_shard.dir = GlobalFunctions.get_random_dir()
 		destroyed_shard.velocity = randf_range(60, 80)

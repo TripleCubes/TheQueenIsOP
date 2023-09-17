@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://y6lo54ude6th"]
+
+[ext_resource type="Script" path="res://Scripts/Pieces/destroyed_shard.gd" id="1_lovx0"]
+[ext_resource type="Texture2D" uid="uid://cbqlgmgrjwg4" path="res://Assets/Pieces/Shards/shard_queen_0.png" id="2_hb3q0"]
+[ext_resource type="Texture2D" uid="uid://stfltf7hj8nu" path="res://Assets/Pieces/Shards/shard_queen_1.png" id="3_mooca"]
+[ext_resource type="Texture2D" uid="uid://dh582quho74fg" path="res://Assets/Pieces/Shards/shard_queen_2.png" id="4_wjodp"]
+
+[node name="DestroyedShardQueen" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_lovx0")
+
+[node name="Shard" type="Node2D" parent="."]
+
+[node name="Shard0" type="Sprite2D" parent="Shard"]
+visible = false
+scale = Vector2(2, 2)
+texture = ExtResource("2_hb3q0")
+
+[node name="Shard1" type="Sprite2D" parent="Shard"]
+visible = false
+scale = Vector2(2, 2)
+texture = ExtResource("3_mooca")
+
+[node name="Shard2" type="Sprite2D" parent="Shard"]
+visible = false
+scale = Vector2(2, 2)
+texture = ExtResource("4_wjodp")
