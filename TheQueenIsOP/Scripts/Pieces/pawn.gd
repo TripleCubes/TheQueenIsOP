@@ -33,11 +33,15 @@ func move() -> void:
 	var timer: = get_tree().create_timer(Consts.MOVE_TIME 
 											+ Consts.MOVE_HOLD_TIME 
 											+ Consts.MOVE_PLACE_DOWN_TIME
-											+ 0.2)
+											+ 0.3)
 	timer.timeout.connect(func():
 		if board_pos.y == 6:
 			var rook: = scene_rook.instantiate()
 			rook.position = GlobalFunctions.board_pos_to_scene_pos(self.board_pos)
 			GlobalVars.pieces.add_child(rook)
-			queue_free()
+
+			var timer_0: = get_tree().create_timer(0.18)
+			timer_0.timeout.connect(func():
+				destroyed_animation()
+			)
 	)
