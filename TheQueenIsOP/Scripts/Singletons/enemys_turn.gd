@@ -28,7 +28,6 @@ func _move(amount: int) -> void:
 											+ Consts.MOVE_HOLD_TIME)
 	timer_0.timeout.connect(func():
 		GlobalVars.queens_turn = true
-		GlobalVars.bkg.queue_redraw()
 	)
 
 func _spawn(amount: int) -> void:

@@ -6,13 +6,7 @@ const TILE_WH: float = Consts.TILE_WH;
 const WINDOW_WH: float = Consts.WINDOW_WH;
 
 const texture_valid_pos: = preload("res://Assets/UI/valid_pos.png")
-
-func _ready():
-	if Engine.is_editor_hint():
-		return
 		
-	GlobalVars.queen.signal_moved.connect(queue_redraw)
-
 func _process(_delta):
 	queue_redraw()
 
