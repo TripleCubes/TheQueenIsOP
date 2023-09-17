@@ -22,12 +22,12 @@ enum PosType {
 }
 
 func queen_move(in_board_pos: Vector2i) -> void:
-	_destroy_pieces(in_board_pos, Vector2(0, 0))
+	_destroy_pieces(in_board_pos, Vector2(0, 0), false)
 	_queen_move_shared()
 	_move_animation(in_board_pos)
 
 func queen_dash(in_board_pos: Vector2i) -> void:
-	_destroy_pieces(in_board_pos, Vector2((in_board_pos - self.board_pos)).normalized())
+	_destroy_pieces(in_board_pos, Vector2((in_board_pos - self.board_pos)).normalized(), true)
 	_queen_move_shared()
 	_move_animation_dash(in_board_pos)
 

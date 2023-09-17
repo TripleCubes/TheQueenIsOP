@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8i3r3u6f5fcl"]
+[gd_scene load_steps=7 format=3 uid="uid://c8i3r3u6f5fcl"]
 
 [ext_resource type="Script" path="res://Scripts/bkg.gd" id="1_ap8rq"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_jff0b"]
 [ext_resource type="PackedScene" uid="uid://e4ec5fgf272l" path="res://Scenes/Pieces/queen.tscn" id="2_hk1ly"]
 [ext_resource type="PackedScene" uid="uid://bte1ymsodre1y" path="res://Scenes/Pieces/rook.tscn" id="5_oyq1f"]
+[ext_resource type="PackedScene" uid="uid://c18mgoe2owbnb" path="res://Scenes/Pieces/knight.tscn" id="6_7dcxq"]
 [ext_resource type="PackedScene" uid="uid://dqdtjs26tcwsk" path="res://Scenes/Pieces/bitshop.tscn" id="6_ykwkt"]
 
 [node name="Main" type="Node2D"]
@@ -27,3 +28,6 @@ position = Vector2(35, 125)
 
 [node name="Bitshop" parent="Pieces" instance=ExtResource("6_ykwkt")]
 position = Vector2(185, 95)
+
+[node name="Knight" parent="Pieces" instance=ExtResource("6_7dcxq")]
+position = Vector2(125, 95)

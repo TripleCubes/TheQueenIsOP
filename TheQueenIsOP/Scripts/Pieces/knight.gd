@@ -1,7 +1,7 @@
 extends Piece
 
 func _ready():
-	scene_destroyed = preload("res://Scenes/Pieces/pawn_destroyed.tscn")
+	scene_destroyed = preload("res://Scenes/Pieces/knight_destroyed.tscn")
 	_spawn_animation()
 
 func move() -> void:
@@ -42,39 +42,39 @@ func _get_valid_pos_list() -> Array:
 	var result: = []
 
 	result.append({
-		pos = self.board_pos + Vector2i(-1, -1),
-		check = [self.board_pos + Vector2i(-1, -1)],
+		pos = self.board_pos + Vector2i(-1, -2),
+		check = [self.board_pos + Vector2i(-1, -2)],
 	})
 	result.append({
-		pos = self.board_pos + Vector2i(-2, -2),
-		check = [self.board_pos + Vector2i(-2, -2), self.board_pos + Vector2i(-1, -1)],
-	})
-
-	result.append({
-		pos = self.board_pos + Vector2i(1, 1),
-		check = [self.board_pos + Vector2i(1, 1)],
-	})
-	result.append({
-		pos = self.board_pos + Vector2i(2, 2),
-		check = [self.board_pos + Vector2i(2, 2), self.board_pos + Vector2i(1, 1)],
+		pos = self.board_pos + Vector2i(1, -2),
+		check = [self.board_pos + Vector2i(1, -2)],
 	})
 
 	result.append({
-		pos = self.board_pos + Vector2i(-1, 1),
-		check = [self.board_pos + Vector2i(-1, 1)],
+		pos = self.board_pos + Vector2i(-1, 2),
+		check = [self.board_pos + Vector2i(-1, 2)],
 	})
 	result.append({
-		pos = self.board_pos + Vector2i(-2, 2),
-		check = [self.board_pos + Vector2i(-2, 2), self.board_pos + Vector2i(-1, 1)],
+		pos = self.board_pos + Vector2i(1, 2),
+		check = [self.board_pos + Vector2i(1, 2)],
 	})
 
 	result.append({
-		pos = self.board_pos + Vector2i(1, -1),
-		check = [self.board_pos + Vector2i(1, -1)],
+		pos = self.board_pos + Vector2i(-2, -1),
+		check = [self.board_pos + Vector2i(-2, -1)],
 	})
 	result.append({
-		pos = self.board_pos + Vector2i(2, -2),
-		check = [self.board_pos + Vector2i(2, -2), self.board_pos + Vector2i(1, -1)],
+		pos = self.board_pos + Vector2i(-2, 1),
+		check = [self.board_pos + Vector2i(-2, 1)],
+	})
+
+	result.append({
+		pos = self.board_pos + Vector2i(2, -1),
+		check = [self.board_pos + Vector2i(2, -1)],
+	})
+	result.append({
+		pos = self.board_pos + Vector2i(2, 1),
+		check = [self.board_pos + Vector2i(2, 1)],
 	})
 
 	return result

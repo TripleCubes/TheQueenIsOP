@@ -44,7 +44,9 @@ func _draw():
 			h = _ease(h)
 			h *= 3
 
-			if not Engine.is_editor_hint() and GlobalVars.queens_turn \
+			if not Engine.is_editor_hint() \
+			and is_instance_valid(GlobalVars.queen) \
+			and GlobalVars.queens_turn \
 			and GlobalVars.queen.get_pos_type(Vector2i(x, y)) != GlobalVars.queen.PosType.INVALID:
 				draw_texture_rect(texture_valid_pos, Rect2(margin + TILE_WH * x, margin + TILE_WH * y - h, TILE_WH, TILE_WH), false)
 

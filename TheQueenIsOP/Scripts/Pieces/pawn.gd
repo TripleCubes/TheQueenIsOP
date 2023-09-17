@@ -5,5 +5,5 @@ func _ready():
 	_spawn_animation()
 
 func move() -> void:
-	_destroy_pieces(self.board_pos + Vector2i(0, 1), Vector2(0, 0))
+	_destroy_pieces(self.board_pos + Vector2i(0, 1), Vector2(0, 0), false)
 	_move_animation(self.board_pos + Vector2i(0, 1))

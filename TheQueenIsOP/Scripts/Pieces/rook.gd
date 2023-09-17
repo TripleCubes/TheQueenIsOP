@@ -43,7 +43,7 @@ func move() -> void:
 				choosen_pos = pos.pos
 		
 	if found:
-		_destroy_pieces(choosen_pos, Vector2(0, 0))
+		_destroy_pieces(choosen_pos, Vector2(0, 0), false)
 		_move_animation(choosen_pos)
 
 func _distance_to_queen_horizontal(in_board_pos: Vector2i) -> int:

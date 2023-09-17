@@ -46,7 +46,7 @@ func _spawn_animation():
 	var tween: = get_tree().create_tween()
 	tween.tween_property(self, "position", original_pos, 0.2)
 
-func _destroy_pieces(next_board_pos: Vector2i, dir: Vector2) -> void:
+func _destroy_pieces(next_board_pos: Vector2i, dir: Vector2, dash: bool) -> void:
 	var differences: = next_board_pos - self.board_pos
 
 	var cursor: = self.board_pos
@@ -59,6 +59,15 @@ func _destroy_pieces(next_board_pos: Vector2i, dir: Vector2) -> void:
 		step_dir.y = step_dir.y / abs(step_dir.y)
 		step_count = abs(next_board_pos.y - self.board_pos.y)
 
+	if not dash:
+		var piece: = GlobalFunctions.get_piece_at(next_board_pos)
+		if piece != null:
+			var timer: = get_tree().create_timer(Consts.MOVE_TIME + Consts.MOVE_HOLD_TIME + Consts.MOVE_PLACE_DOWN_TIME - 0.1)
+			timer.timeout.connect(func():
+				piece.destroyed_animation()
+			)
+		return
+
 	cursor += step_dir
 	for i in step_count:
 		var piece: = GlobalFunctions.get_piece_at(cursor)
@@ -67,22 +76,16 @@ func _destroy_pieces(next_board_pos: Vector2i, dir: Vector2) -> void:
 			cursor += step_dir
 			continue
 
-		if dir == Vector2(0, 0):
-			var timer: = get_tree().create_timer(Consts.MOVE_TIME + Consts.MOVE_HOLD_TIME + Consts.MOVE_PLACE_DOWN_TIME - 0.1)
+		if piece.board_pos == next_board_pos:
+			var timer: = get_tree().create_timer(Consts.DASH_TIME / step_count * i)
 			timer.timeout.connect(func():
-				piece.destroyed_animation()
+				piece.destroyed_animation_dir(dir, false)
 			)
 		else:
-			if piece.board_pos == next_board_pos:
-				var timer: = get_tree().create_timer(Consts.DASH_TIME / step_count * i)
-				timer.timeout.connect(func():
-					piece.destroyed_animation_dir(dir, false)
-				)
-			else:
-				var timer: = get_tree().create_timer(Consts.DASH_TIME / step_count * i)
-				timer.timeout.connect(func():
-					piece.destroyed_animation_dir(dir, true)
-				)
+			var timer: = get_tree().create_timer(Consts.DASH_TIME / step_count * i)
+			timer.timeout.connect(func():
+				piece.destroyed_animation_dir(dir, true)
+			)
 
 		cursor += step_dir
 
