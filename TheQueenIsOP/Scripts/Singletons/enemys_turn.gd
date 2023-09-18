@@ -1,6 +1,12 @@
 extends Node
 
 const scene_pawn: PackedScene = preload("res://Scenes/Pieces/pawn.tscn")
+const scene_rook: PackedScene = preload("res://Scenes/Pieces/rook.tscn")
+const scene_bitshop: PackedScene = preload("res://Scenes/Pieces/bitshop.tscn")
+const scene_knight: PackedScene = preload("res://Scenes/Pieces/knight.tscn")
+const scene_king: PackedScene = preload("res://Scenes/Pieces/king.tscn")
+
+var spawn_order: = [3, 1, 5, 2, 4, 0, 6,]
 
 func decide() -> void:
 	var move_result: = _move(3)
@@ -53,11 +59,16 @@ func _move(amount: int) -> Dictionary:
 	}
 
 func _spawn(amount: int) -> void:
+	var spawn_order_index: int = 0
 	for i in amount:
-		var pos = Vector2i(3 - floor(amount / float(2)) + i, 0)
+		var pos = Vector2i(spawn_order[spawn_order_index], 0)
 		var piece = GlobalFunctions.get_piece_at(pos)
-		if piece != null:
-			continue
+		while piece != null:
+			spawn_order_index += 1
+			if spawn_order_index == 7:
+				return
+			pos = Vector2i(spawn_order[spawn_order_index], 0)
+			piece = GlobalFunctions.get_piece_at(pos)
 
 		var timer: = get_tree().create_timer(i * 0.1)
 		timer.timeout.connect(func():
@@ -65,6 +76,9 @@ func _spawn(amount: int) -> void:
 			pawn.position = GlobalFunctions.board_pos_to_scene_pos(pos)
 			GlobalVars.pieces.add_child(pawn)
 		)
+		spawn_order_index += 1
+		if spawn_order_index == 7:
+			return
 
 func _get_all_enemy_pieces() -> Array:
 	var result: = []
