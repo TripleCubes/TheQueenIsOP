@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c8i3r3u6f5fcl"]
+[gd_scene load_steps=16 format=3 uid="uid://c8i3r3u6f5fcl"]
 
 [ext_resource type="Script" path="res://Scripts/bkg.gd" id="1_ap8rq"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_jff0b"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bjr3xeg7pt10j" path="res://Assets/Sprites/UI/pause_hovered.png" id="8_v0vr0"]
 [ext_resource type="Script" path="res://Scripts/UI/progress_bar_horizontal.gd" id="10_6dfb0"]
 [ext_resource type="PackedScene" uid="uid://xdh4wow41de" path="res://Scenes/start_screen.tscn" id="11_63m04"]
+[ext_resource type="PackedScene" uid="uid://bdpl0xukjlbei" path="res://Scenes/pause_menu.tscn" id="11_ww2ds"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rlmac"]
 texture = ExtResource("7_5jihr")
@@ -28,6 +29,14 @@ script = ExtResource("1_jff0b")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-500, 0)
 anchor_mode = 0
+
+[node name="StartScreen" parent="." instance=ExtResource("11_63m04")]
+position = Vector2(-500, 0)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -250.0
+offset_bottom = 254.0
+color = Color(0.8, 0.529412, 0.278431, 1)
 
 [node name="Bkg" type="Node2D" parent="."]
 script = ExtResource("1_ap8rq")
@@ -74,10 +83,7 @@ init_paused = true
 debug_fill_time_sec = 5.0
 debug_reverse_fill_time_sec = 5.0
 
-[node name="StartScreen" parent="." instance=ExtResource("11_63m04")]
-position = Vector2(-500, 0)
+[node name="PauseMenu" parent="UI" instance=ExtResource("11_ww2ds")]
+position = Vector2(250, 0)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -250.0
-offset_bottom = 254.0
-color = Color(0.8, 0.529412, 0.278431, 1)
+[connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]

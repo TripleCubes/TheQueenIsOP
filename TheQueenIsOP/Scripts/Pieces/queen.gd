@@ -102,7 +102,7 @@ func _process(_delta):
 	_mouse_press_process()
 	
 func _mouse_press_process():
-	if not Input.is_action_just_pressed("MOUSE_LEFT"):
+	if not GlobalVars.game_paused and not Input.is_action_just_pressed("MOUSE_LEFT"):
 		return
 
 	if not GlobalVars.queens_turn:
