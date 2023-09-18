@@ -125,11 +125,14 @@ func _summon_pawns() -> void:
 		if piece != GlobalVars.queen and piece != null:
 			continue
 
-		if piece == GlobalVars.queen:
-			GlobalVars.queen.destroyed_animation()
-
 		var timer: = get_tree().create_timer(0.1 * i)
 		timer.timeout.connect(func():
+			if piece == GlobalVars.queen:
+				var timer_0: = get_tree().create_timer(0.19)
+				timer_0.timeout.connect(func():
+					GlobalVars.queen.destroyed_animation()
+				)
+
 			var pawn: = scene_pawn.instantiate()
 			pawn.position = GlobalFunctions.board_pos_to_scene_pos(pos)
 			GlobalVars.pieces.add_child(pawn)

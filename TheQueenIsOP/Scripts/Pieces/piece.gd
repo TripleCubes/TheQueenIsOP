@@ -111,10 +111,11 @@ func _destroy_piece_shared(piece: Piece) -> void:
 	if self != GlobalVars.queen:
 		return
 
+	GlobalVars.points.points += piece.points
+
 	if GlobalVars.queen.op_mode:
 		return
 
-	GlobalVars.points.points += piece.points
 	GlobalVars.op_mode_bar.progress += 0.25
 	if GlobalVars.op_mode_bar.progress == 1:
 		GlobalVars.queen.op_mode = true
