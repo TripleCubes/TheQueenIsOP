@@ -79,8 +79,7 @@ func _destroy_pieces(next_board_pos: Vector2i, dir: Vector2, dash: bool) -> void
 		if piece != null:
 			var timer: = get_tree().create_timer(Consts.MOVE_TIME + Consts.MOVE_HOLD_TIME + Consts.MOVE_PLACE_DOWN_TIME - 0.1)
 			timer.timeout.connect(func():
-				if self == GlobalVars.queen:
-					GlobalVars.points.points += piece.points
+				_destroy_piece_shared(piece)
 				piece.destroyed_animation()
 			)
 		return
@@ -96,19 +95,29 @@ func _destroy_pieces(next_board_pos: Vector2i, dir: Vector2, dash: bool) -> void
 		if piece.board_pos == next_board_pos:
 			var timer: = get_tree().create_timer(Consts.DASH_TIME / step_count * i)
 			timer.timeout.connect(func():
-				if self == GlobalVars.queen:
-					GlobalVars.points.points += piece.points
+				_destroy_piece_shared(piece)
 				piece.destroyed_animation_dir(dir, false)
 			)
 		else:
 			var timer: = get_tree().create_timer(Consts.DASH_TIME / step_count * i)
 			timer.timeout.connect(func():
-				if self == GlobalVars.queen:
-					GlobalVars.points.points += piece.points
+				_destroy_piece_shared(piece)
 				piece.destroyed_animation_dir(dir, true)
 			)
 
 		cursor += step_dir
+
+func _destroy_piece_shared(piece: Piece) -> void:
+	if self != GlobalVars.queen:
+		return
+
+	if GlobalVars.queen.op_mode:
+		return
+
+	GlobalVars.points.points += piece.points
+	GlobalVars.op_mode_bar.progress += 0.25
+	if GlobalVars.op_mode_bar.progress == 1:
+		GlobalVars.queen.op_mode = true
 
 func _move_animation(next_board_pos: Vector2i) -> void:
 	var tween_0_pos: = GlobalFunctions.board_pos_to_scene_pos(next_board_pos)

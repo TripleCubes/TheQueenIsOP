@@ -2,6 +2,9 @@ extends Piece
 
 const DASH_DISTANCE: int = 2
 
+@onready var sprite: Sprite2D = get_node("Queen")
+@onready var sprite_op: Sprite2D = get_node("QueenOP")
+
 enum Dir {
 	TOP,
 	BOTTOM,
@@ -19,6 +22,18 @@ enum PosType {
 	DASH,
 }
 
+var op_mode: bool = false:
+	get:
+		return op_mode
+	set(val):
+		op_mode = val
+		if op_mode:
+			sprite.hide()
+			sprite_op.show()
+		else:
+			sprite.show()
+			sprite_op.hide()
+
 func queen_move(in_board_pos: Vector2i) -> void:
 	_destroy_pieces(in_board_pos, Vector2(0, 0), false)
 	_queen_move_shared(Consts.MOVE_TIME + Consts.MOVE_PLACE_DOWN_TIME 
@@ -29,6 +44,14 @@ func queen_dash(in_board_pos: Vector2i) -> void:
 	_destroy_pieces(in_board_pos, Vector2((in_board_pos - self.board_pos)).normalized(), true)
 	_queen_move_shared(Consts.DASH_TIME + 1)
 	_move_animation_dash(in_board_pos)
+
+	if not op_mode:
+		return
+
+	GlobalVars.op_mode_bar.progress -= 0.334
+	if GlobalVars.op_mode_bar.progress <= 0:
+		GlobalVars.op_mode_bar.progress = -0.25
+		op_mode = false
 
 func _queen_move_shared(time_until_enemys_turn: float) -> void:
 	GlobalVars.num_moved += 1

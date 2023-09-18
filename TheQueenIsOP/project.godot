@@ -28,6 +28,7 @@ PointsList="*res://Scripts/Singletons/points_list.gd"
 
 window/size/viewport_width=500
 window/size/viewport_height=500
+window/size/resizable=false
 window/stretch/scale=2.0
 
 [input]

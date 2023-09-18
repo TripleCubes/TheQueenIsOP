@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c8i3r3u6f5fcl"]
+[gd_scene load_steps=14 format=3 uid="uid://c8i3r3u6f5fcl"]
 
 [ext_resource type="Script" path="res://Scripts/bkg.gd" id="1_ap8rq"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_jff0b"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c07gueitmnsyq" path="res://Assets/Sprites/UI/pause.png" id="7_5jihr"]
 [ext_resource type="Script" path="res://Scripts/UI/button.gd" id="7_v3cv4"]
 [ext_resource type="Texture2D" uid="uid://bjr3xeg7pt10j" path="res://Assets/Sprites/UI/pause_hovered.png" id="8_v0vr0"]
+[ext_resource type="Script" path="res://Scripts/UI/progress_bar_horizontal.gd" id="10_6dfb0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rlmac"]
 texture = ExtResource("7_5jihr")
@@ -35,25 +36,19 @@ y_sort_enabled = true
 [node name="Queen" parent="Pieces" instance=ExtResource("2_hk1ly")]
 position = Vector2(125, 215)
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="UI" type="Node2D" parent="."]
 
 [node name="Points" type="RichTextLabel" parent="UI"]
-layout_mode = 0
 offset_left = 5.0
-offset_top = 3.0
+offset_top = 234.0
 offset_right = 75.0
-offset_bottom = 23.0
+offset_bottom = 254.0
 theme_override_fonts/normal_font = ExtResource("2_gwxor")
 theme_override_font_sizes/normal_font_size = 10
 text = "Points: 0"
 script = ExtResource("5_mkywt")
 
-[node name="UI_Button" type="Button" parent="UI"]
-layout_mode = 0
+[node name="PauseButton" type="Button" parent="UI"]
 offset_left = 235.0
 offset_top = 5.0
 offset_right = 245.0
@@ -64,3 +59,14 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_rlmac")
 theme_override_styles/hover = SubResource("StyleBoxTexture_0mfkx")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_615ay")
 script = ExtResource("7_v3cv4")
+
+[node name="OPModeBar" type="Node2D" parent="UI"]
+position = Vector2(55, 237)
+script = ExtResource("10_6dfb0")
+length = 50.0
+color = Color(1, 0.803922, 0.309804, 1)
+fill_time_sec = 5.0
+reverse_fill_time_sec = 5.0
+init_paused = true
+debug_fill_time_sec = 5.0
+debug_reverse_fill_time_sec = 5.0

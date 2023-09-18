@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://e4ec5fgf272l"]
+[gd_scene load_steps=4 format=3 uid="uid://e4ec5fgf272l"]
 
 [ext_resource type="Script" path="res://Scripts/Pieces/queen.gd" id="1_5xk8n"]
 [ext_resource type="Texture2D" uid="uid://bqutk5gghwl8s" path="res://Assets/Sprites/Pieces/queen.png" id="1_w1ood"]
+[ext_resource type="Texture2D" uid="uid://chm4pxvipo0e1" path="res://Assets/Sprites/Pieces/queen_op.png" id="3_ebmsj"]
 
 [node name="Queen" type="Node2D"]
 texture_filter = 1
@@ -11,3 +12,9 @@ script = ExtResource("1_5xk8n")
 position = Vector2(0, -23)
 scale = Vector2(2, 2)
 texture = ExtResource("1_w1ood")
+
+[node name="QueenOP" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -23)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ebmsj")
