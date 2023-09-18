@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://c8i3r3u6f5fcl"]
+[gd_scene load_steps=14 format=3 uid="uid://c8i3r3u6f5fcl"]
 
 [ext_resource type="Script" path="res://Scripts/bkg.gd" id="1_ap8rq"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_jff0b"]
 [ext_resource type="FontFile" uid="uid://byvftg40uyx60" path="res://Assets/Fonts/Munro/munro.ttf" id="2_gwxor"]
 [ext_resource type="PackedScene" uid="uid://e4ec5fgf272l" path="res://Scenes/Pieces/queen.tscn" id="2_hk1ly"]
-[ext_resource type="PackedScene" uid="uid://cqugj710lvsl6" path="res://Scenes/Pieces/king.tscn" id="4_ckofx"]
 [ext_resource type="Script" path="res://Scripts/UI/points.gd" id="5_mkywt"]
 [ext_resource type="Theme" uid="uid://bond37gfa0v24" path="res://Styles/style.tres" id="6_t7vuf"]
 [ext_resource type="Texture2D" uid="uid://c07gueitmnsyq" path="res://Assets/Sprites/UI/pause.png" id="7_5jihr"]
@@ -36,9 +35,6 @@ y_sort_enabled = true
 
 [node name="Queen" parent="Pieces" instance=ExtResource("2_hk1ly")]
 position = Vector2(125, 215)
-
-[node name="King" parent="Pieces" instance=ExtResource("4_ckofx")]
-position = Vector2(125, 65)
 
 [node name="UI" type="Node2D" parent="."]
 

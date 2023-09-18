@@ -9,4 +9,4 @@ extends Node
 @onready var ui: Node2D = get_node("/root/Main/UI")
 
 var queens_turn: = true
-var num_moved: int = 0
+var num_moved: int = 20

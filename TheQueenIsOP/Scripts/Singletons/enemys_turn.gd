@@ -72,7 +72,8 @@ func _move(amount: int) -> Dictionary:
 			
 		var timer: = get_tree().create_timer(i * move_time)
 		timer.timeout.connect(func():
-			piece.move()
+			if is_instance_valid(GlobalVars.queen):
+				piece.move()
 		)
 
 	return {
@@ -83,13 +84,13 @@ func _move(amount: int) -> Dictionary:
 func _spawn(amount: int) -> void:
 	var total_point_spawn: = _get_total_points_spawn()
 
-	var spawn_order_index: int = 0
 	for i in amount:
 		var availabe_spawn_pos_list: = _get_available_spawn_pos_list()
 		if availabe_spawn_pos_list.size() == 0:
 			return
 		var pos_index: = randi_range(0, availabe_spawn_pos_list.size() - 1)
 		var pos = availabe_spawn_pos_list[pos_index]
+		availabe_spawn_pos_list.remove_at(pos_index)
 
 		var timer: = get_tree().create_timer(i * 0.1)
 		timer.timeout.connect(func():
@@ -100,9 +101,6 @@ func _spawn(amount: int) -> void:
 			piece_spawn.position = GlobalFunctions.board_pos_to_scene_pos(pos)
 			GlobalVars.pieces.add_child(piece_spawn)
 		)
-		spawn_order_index += 1
-		if spawn_order_index == 7:
-			return
 
 func _get_available_spawn_pos_list() -> Array:
 	var result: = []
