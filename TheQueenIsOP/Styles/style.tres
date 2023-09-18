@@ -6,7 +6,7 @@
 bg_color = Color(0, 0, 0, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwan4"]
-bg_color = Color(1, 0.898039, 0.619608, 1)
+bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_438f4"]
 bg_color = Color(0.8, 0.529412, 0.278431, 1)
@@ -15,11 +15,11 @@ bg_color = Color(0.8, 0.529412, 0.278431, 1)
 bg_color = Color(0.8, 0.529412, 0.278431, 1)
 
 [resource]
-Button/colors/font_color = Color(1, 0.898039, 0.619608, 1)
-Button/colors/font_focus_color = Color(1, 0.898039, 0.619608, 1)
-Button/colors/font_hover_color = Color(1, 0.898039, 0.619608, 1)
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
 Button/colors/font_outline_color = Color(0.8, 0.529412, 0.278431, 1)
-Button/colors/font_pressed_color = Color(1, 0.898039, 0.619608, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
 Button/constants/outline_size = 4
 Button/font_sizes/font_size = 10
 Button/fonts/font = ExtResource("1_511fj")

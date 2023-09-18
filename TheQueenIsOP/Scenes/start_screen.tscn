@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://xdh4wow41de"]
+
+[ext_resource type="Script" path="res://Scripts/StartScreen/start_bkg.gd" id="1_mnd3e"]
+[ext_resource type="Script" path="res://Scripts/StartScreen/start_screen.gd" id="1_pyhpc"]
+[ext_resource type="Theme" uid="uid://bond37gfa0v24" path="res://Styles/style.tres" id="2_pt4lx"]
+[ext_resource type="Script" path="res://Scripts/UI/button.gd" id="3_5lnc6"]
+[ext_resource type="Texture2D" uid="uid://bqutk5gghwl8s" path="res://Assets/Sprites/Pieces/queen.png" id="4_lkqwt"]
+[ext_resource type="Texture2D" uid="uid://db5q2jy0n1ksr" path="res://Assets/Sprites/Pieces/king.png" id="5_poap4"]
+[ext_resource type="Script" path="res://Scripts/StartScreen/start_screen_piece.gd" id="5_sy0s2"]
+[ext_resource type="Texture2D" uid="uid://bk1ys6nydvk6w" path="res://Assets/Sprites/Pieces/knight.png" id="6_waitl"]
+[ext_resource type="Texture2D" uid="uid://cwtrfadw17kfh" path="res://Assets/Sprites/Pieces/pawn.png" id="7_rrp4u"]
+[ext_resource type="Texture2D" uid="uid://bqipqs8avxdbj" path="res://Assets/Sprites/Pieces/rook.png" id="8_5hac6"]
+[ext_resource type="Texture2D" uid="uid://cu4nykat56ed2" path="res://Assets/Sprites/Pieces/bitshop.png" id="9_enqc7"]
+
+[node name="StartScreen" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_pyhpc")
+
+[node name="Bkg" type="Node2D" parent="."]
+script = ExtResource("1_mnd3e")
+
+[node name="Title" type="RichTextLabel" parent="."]
+offset_left = 4.0
+offset_top = 10.0
+offset_right = 78.0
+offset_bottom = 30.0
+scale = Vector2(3, 3)
+theme = ExtResource("2_pt4lx")
+theme_override_colors/font_outline_color = Color(0.8, 0.529412, 0.278431, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 10
+text = " The Queen is OP"
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 10.0
+offset_top = 60.0
+offset_right = 55.0
+offset_bottom = 75.0
+focus_mode = 0
+theme = ExtResource("2_pt4lx")
+text = "Start"
+script = ExtResource("3_5lnc6")
+border_color = Color(1, 1, 1, 1)
+
+[node name="King" type="Sprite2D" parent="."]
+position = Vector2(115, 146)
+scale = Vector2(2, 2)
+texture = ExtResource("5_poap4")
+script = ExtResource("5_sy0s2")
+
+[node name="Knight" type="Sprite2D" parent="."]
+position = Vector2(145, 111)
+scale = Vector2(2, 2)
+texture = ExtResource("6_waitl")
+script = ExtResource("5_sy0s2")
+
+[node name="Pawn" type="Sprite2D" parent="."]
+position = Vector2(195, 111)
+scale = Vector2(2, 2)
+texture = ExtResource("7_rrp4u")
+script = ExtResource("5_sy0s2")
+
+[node name="Bitshop" type="Sprite2D" parent="."]
+position = Vector2(205, 161)
+scale = Vector2(2, 2)
+texture = ExtResource("9_enqc7")
+script = ExtResource("5_sy0s2")
+
+[node name="Rook" type="Sprite2D" parent="."]
+position = Vector2(190, 196)
+scale = Vector2(2, 2)
+texture = ExtResource("8_5hac6")
+script = ExtResource("5_sy0s2")
+
+[node name="Queen" type="Sprite2D" parent="."]
+position = Vector2(155, 161)
+scale = Vector2(2, 2)
+texture = ExtResource("4_lkqwt")
+script = ExtResource("5_sy0s2")
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
