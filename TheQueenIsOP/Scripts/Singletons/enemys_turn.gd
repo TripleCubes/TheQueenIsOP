@@ -29,8 +29,6 @@ const scene_king: PackedScene = preload("res://Scenes/Pieces/king.tscn")
 	},
 ]
 
-var spawn_order: = [3, 1, 5, 2, 4, 0, 6,]
-
 func decide() -> void:
 	var num_spawn: = _get_num_spawn()
 	var move_result: = _move(num_spawn)
@@ -87,14 +85,11 @@ func _spawn(amount: int) -> void:
 
 	var spawn_order_index: int = 0
 	for i in amount:
-		var pos = Vector2i(spawn_order[spawn_order_index], 0)
-		var piece = GlobalFunctions.get_piece_at(pos)
-		while piece != null:
-			spawn_order_index += 1
-			if spawn_order_index == 7:
-				return
-			pos = Vector2i(spawn_order[spawn_order_index], 0)
-			piece = GlobalFunctions.get_piece_at(pos)
+		var availabe_spawn_pos_list: = _get_available_spawn_pos_list()
+		if availabe_spawn_pos_list.size() == 0:
+			return
+		var pos_index: = randi_range(0, availabe_spawn_pos_list.size() - 1)
+		var pos = availabe_spawn_pos_list[pos_index]
 
 		var timer: = get_tree().create_timer(i * 0.1)
 		timer.timeout.connect(func():
@@ -108,6 +103,18 @@ func _spawn(amount: int) -> void:
 		spawn_order_index += 1
 		if spawn_order_index == 7:
 			return
+
+func _get_available_spawn_pos_list() -> Array:
+	var result: = []
+	for x in 7:
+		for y in 2:
+			var piece: = GlobalFunctions.get_piece_at(Vector2i(x, y))
+			if piece != null:
+				continue
+			
+			result.append(Vector2i(x, y))
+	
+	return result
 
 func _get_all_enemy_pieces() -> Array:
 	var result: = []
@@ -124,7 +131,7 @@ func _get_all_enemy_pieces() -> Array:
 	return result
 
 func _get_num_spawn() -> int:
-	var num_spawn: float = float(GlobalVars.num_moved) / 8
+	var num_spawn: float = float(GlobalVars.num_moved) / 6
 	return max(1, min(7, floor(num_spawn)))
 
 func _get_total_points_spawn() -> int:
