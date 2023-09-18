@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/button.gd" id="3_5s5hd"]
 
 [node name="PauseMenu" type="Node2D"]
+z_index = -1
 texture_filter = 1
 script = ExtResource("1_ca52t")
 

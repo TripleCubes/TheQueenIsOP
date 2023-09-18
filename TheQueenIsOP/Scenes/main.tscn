@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c8i3r3u6f5fcl"]
+[gd_scene load_steps=17 format=3 uid="uid://c8i3r3u6f5fcl"]
 
 [ext_resource type="Script" path="res://Scripts/bkg.gd" id="1_ap8rq"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_jff0b"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/progress_bar_horizontal.gd" id="10_6dfb0"]
 [ext_resource type="PackedScene" uid="uid://xdh4wow41de" path="res://Scenes/start_screen.tscn" id="11_63m04"]
 [ext_resource type="PackedScene" uid="uid://bdpl0xukjlbei" path="res://Scenes/pause_menu.tscn" id="11_ww2ds"]
+[ext_resource type="Script" path="res://Scripts/UI/box.gd" id="13_cm0jq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rlmac"]
 texture = ExtResource("7_5jihr")
@@ -86,4 +87,30 @@ debug_reverse_fill_time_sec = 5.0
 [node name="PauseMenu" parent="UI" instance=ExtResource("11_ww2ds")]
 position = Vector2(250, 0)
 
+[node name="LoseMessage" type="Node2D" parent="UI"]
+position = Vector2(0, -40)
+
+[node name="UI_Box" type="Node2D" parent="UI/LoseMessage"]
+position = Vector2(5, 3)
+script = ExtResource("13_cm0jq")
+size = Vector2(105, 13)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/LoseMessage/UI_Box"]
+offset_left = 4.0
+offset_right = 102.0
+offset_bottom = 26.0
+theme = ExtResource("6_t7vuf")
+text = "The Queen is destroyed"
+
+[node name="RestartButton" type="Button" parent="UI/LoseMessage/UI_Box"]
+offset_left = 110.0
+offset_right = 150.0
+offset_bottom = 13.0
+focus_mode = 0
+theme = ExtResource("6_t7vuf")
+text = "Restart"
+script = ExtResource("7_v3cv4")
+border_color = Color(1, 0.898039, 0.619608, 1)
+
 [connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="UI/LoseMessage/UI_Box/RestartButton" to="." method="_on_restart_button_pressed"]

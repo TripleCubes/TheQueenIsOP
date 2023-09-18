@@ -6,3 +6,6 @@ func _process(_delta):
 
 func _on_pause_button_pressed():
 	GlobalVars.game_paused = true
+
+func _on_restart_button_pressed():
+	GlobalFunctions.restart_game()

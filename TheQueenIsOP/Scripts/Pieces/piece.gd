@@ -81,6 +81,12 @@ func _destroy_pieces(next_board_pos: Vector2i, dir: Vector2, dash: bool) -> void
 			timer.timeout.connect(func():
 				_destroy_piece_shared(piece)
 				piece.destroyed_animation()
+
+				if piece == GlobalVars.queen:
+					var timer_0: = get_tree().create_timer(1)
+					timer_0.timeout.connect(func():
+						GlobalVars.lose_message_show = true
+					)
 			)
 		return
 

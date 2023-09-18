@@ -8,6 +8,9 @@ const WINDOW_WH: float = Consts.WINDOW_WH;
 const texture_valid_pos: = preload("res://Assets/Sprites/UI/valid_pos.png")
 		
 func _process(_delta):
+	if Engine.is_editor_hint():
+		return
+		
 	queue_redraw()
 
 func _draw():

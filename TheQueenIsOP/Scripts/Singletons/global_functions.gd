@@ -46,17 +46,31 @@ func camera_shake(dir: Vector2) -> void:
 	tween.tween_property(GlobalVars.camera, "position", GlobalVars.camera.position + dir * SHAKE_DIST, SHAKE_FORWARD_TIME)
 	tween.tween_property(GlobalVars.camera, "position", Vector2(0, 0), SHAKE_BACKWARD_TIME).set_trans(Tween.TRANS_SINE)
 
+const scene_queen: PackedScene = preload("res://Scenes/Pieces/queen.tscn")
 func restart_game() -> void:
-	GlobalVars.queens_turn = true
+	GlobalVars.queens_turn = false
 	GlobalVars.num_moved = 0
 	GlobalVars.points.points = 0
 	GlobalVars.op_mode_bar.progress = 0
 	
-	for node in GlobalVars.pieces.get_children():
-		if node == GlobalVars.queen:
+	for piece in GlobalVars.pieces.get_children():
+		if not piece is Piece:
 			continue
 		
-		node.queue_free()
+		piece.destroyed_animation()
 
-	GlobalVars.queen.position = Vector2(125, 215)
-	GlobalVars.queen.op_mode = false
+	var queen: = scene_queen.instantiate()
+	queen.position = Vector2(125, 215)
+	GlobalVars.queen = queen
+
+	var timer: = get_tree().create_timer(1)
+	timer.timeout.connect(func():
+		GlobalVars.pieces.add_child(queen)
+	)
+
+	var timer_0: = get_tree().create_timer(2)
+	timer_0.timeout.connect(func():
+		GlobalVars.queens_turn = true
+	)
+
+	GlobalVars.lose_message_show = false
