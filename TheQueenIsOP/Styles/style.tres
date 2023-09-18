@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bond37gfa0v24"]
+
+[ext_resource type="FontFile" uid="uid://byvftg40uyx60" path="res://Assets/Fonts/Munro/munro.ttf" id="1_511fj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obyxp"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwan4"]
+bg_color = Color(1, 0.898039, 0.619608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_438f4"]
+bg_color = Color(0.8, 0.529412, 0.278431, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fkbj"]
+bg_color = Color(0.8, 0.529412, 0.278431, 1)
+
+[resource]
+Button/colors/font_color = Color(1, 0.898039, 0.619608, 1)
+Button/colors/font_focus_color = Color(1, 0.898039, 0.619608, 1)
+Button/colors/font_hover_color = Color(1, 0.898039, 0.619608, 1)
+Button/colors/font_outline_color = Color(0.8, 0.529412, 0.278431, 1)
+Button/colors/font_pressed_color = Color(1, 0.898039, 0.619608, 1)
+Button/constants/outline_size = 4
+Button/font_sizes/font_size = 10
+Button/fonts/font = ExtResource("1_511fj")
+Button/styles/focus = SubResource("StyleBoxFlat_obyxp")
+Button/styles/hover = SubResource("StyleBoxFlat_jwan4")
+Button/styles/normal = SubResource("StyleBoxFlat_438f4")
+Button/styles/pressed = SubResource("StyleBoxFlat_0fkbj")
+RichTextLabel/font_sizes/normal_font_size = 10
+RichTextLabel/fonts/normal_font = ExtResource("1_511fj")

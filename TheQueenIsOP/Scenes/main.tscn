@@ -1,10 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8i3r3u6f5fcl"]
+[gd_scene load_steps=13 format=3 uid="uid://c8i3r3u6f5fcl"]
 
 [ext_resource type="Script" path="res://Scripts/bkg.gd" id="1_ap8rq"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_jff0b"]
 [ext_resource type="FontFile" uid="uid://byvftg40uyx60" path="res://Assets/Fonts/Munro/munro.ttf" id="2_gwxor"]
 [ext_resource type="PackedScene" uid="uid://e4ec5fgf272l" path="res://Scenes/Pieces/queen.tscn" id="2_hk1ly"]
 [ext_resource type="Script" path="res://Scripts/UI/points.gd" id="5_mkywt"]
+[ext_resource type="Theme" uid="uid://bond37gfa0v24" path="res://Styles/style.tres" id="6_t7vuf"]
+[ext_resource type="Texture2D" uid="uid://c07gueitmnsyq" path="res://Assets/Sprites/UI/pause.png" id="7_5jihr"]
+[ext_resource type="Script" path="res://Scripts/UI/button.gd" id="7_v3cv4"]
+[ext_resource type="Texture2D" uid="uid://bjr3xeg7pt10j" path="res://Assets/Sprites/UI/pause_hovered.png" id="8_v0vr0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rlmac"]
+texture = ExtResource("7_5jihr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0mfkx"]
+texture = ExtResource("8_v0vr0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_615ay"]
+texture = ExtResource("7_5jihr")
 
 [node name="Main" type="Node2D"]
 texture_filter = 1
@@ -38,3 +51,16 @@ theme_override_fonts/normal_font = ExtResource("2_gwxor")
 theme_override_font_sizes/normal_font_size = 10
 text = "Points: 0"
 script = ExtResource("5_mkywt")
+
+[node name="UI_Button" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 5.0
+offset_right = 245.0
+offset_bottom = 15.0
+focus_mode = 0
+theme = ExtResource("6_t7vuf")
+theme_override_styles/normal = SubResource("StyleBoxTexture_rlmac")
+theme_override_styles/hover = SubResource("StyleBoxTexture_0mfkx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_615ay")
+script = ExtResource("7_v3cv4")
