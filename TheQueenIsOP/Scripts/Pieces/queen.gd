@@ -1,7 +1,5 @@
 extends Piece
 
-const DASH_DISTANCE: int = 2
-
 @onready var sprite: Sprite2D = get_node("Queen")
 @onready var sprite_op: Sprite2D = get_node("QueenOP")
 
@@ -77,13 +75,23 @@ func get_pos_type(in_board_pos: Vector2i) -> PosType:
 		or in_board_pos.y == self.board_pos.y):
 		return PosType.MOVE
 
-	if (in_board_pos.x == self.board_pos.x + DASH_DISTANCE \
-		or in_board_pos.x == self.board_pos.x - DASH_DISTANCE \
+	if (in_board_pos.x == self.board_pos.x + 2 \
+		or in_board_pos.x == self.board_pos.x - 2 \
 		or in_board_pos.x == self.board_pos.x) \
-	and (in_board_pos.y == self.board_pos.y + DASH_DISTANCE \
-		or in_board_pos.y == self.board_pos.y - DASH_DISTANCE \
+	and (in_board_pos.y == self.board_pos.y + 2 \
+		or in_board_pos.y == self.board_pos.y - 2 \
 		or in_board_pos.y == self.board_pos.y):
 		return PosType.DASH
+
+	if op_mode:
+		for i in range(3, 7):
+			if (in_board_pos.x == self.board_pos.x + i \
+				or in_board_pos.x == self.board_pos.x - i \
+				or in_board_pos.x == self.board_pos.x) \
+			and (in_board_pos.y == self.board_pos.y + i \
+				or in_board_pos.y == self.board_pos.y - i \
+				or in_board_pos.y == self.board_pos.y):
+				return PosType.DASH
 
 	return PosType.INVALID
 
