@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbqlgmgrjwg4"
-path="res://.godot/imported/shard_queen_0.png-0f825ed0d9f5ea5170e7b1127c79f154.ctex"
+uid="uid://db5q2jy0n1ksr"
+path="res://.godot/imported/king.png-0e87c94ef2b672450a8fcf2414a16830.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Pieces/Shards/shard_queen_0.png"
-dest_files=["res://.godot/imported/shard_queen_0.png-0f825ed0d9f5ea5170e7b1127c79f154.ctex"]
+source_file="res://Assets/Sprites/Pieces/king.png"
+dest_files=["res://.godot/imported/king.png-0e87c94ef2b672450a8fcf2414a16830.ctex"]
 
 [params]
 

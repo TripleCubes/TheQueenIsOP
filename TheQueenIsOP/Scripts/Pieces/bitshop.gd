@@ -2,6 +2,7 @@ extends Piece
 
 func _ready():
 	scene_destroyed = preload("res://Scenes/Pieces/pawn_destroyed.tscn")
+	points = PointList.point_list.bitshop
 	_spawn_animation()
 
 func move() -> void:

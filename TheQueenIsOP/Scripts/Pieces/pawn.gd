@@ -6,6 +6,7 @@ const scene_knight: PackedScene = preload("res://Scenes/Pieces/knight.tscn")
 
 func _ready():
 	scene_destroyed = preload("res://Scenes/Pieces/pawn_destroyed.tscn")
+	points = PointList.point_list.pawn
 	_spawn_animation()
 
 func move() -> void:

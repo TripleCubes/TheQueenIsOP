@@ -5,7 +5,7 @@ const BOARD_WH: int = Consts.BOARD_WH;
 const TILE_WH: float = Consts.TILE_WH;
 const WINDOW_WH: float = Consts.WINDOW_WH;
 
-const texture_valid_pos: = preload("res://Assets/UI/valid_pos.png")
+const texture_valid_pos: = preload("res://Assets/Sprites/UI/valid_pos.png")
 		
 func _process(_delta):
 	queue_redraw()

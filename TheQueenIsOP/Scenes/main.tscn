@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/bkg.gd" id="1_ap8rq"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_jff0b"]
+[ext_resource type="FontFile" uid="uid://byvftg40uyx60" path="res://Assets/Fonts/Munro/munro.ttf" id="2_gwxor"]
 [ext_resource type="PackedScene" uid="uid://e4ec5fgf272l" path="res://Scenes/Pieces/queen.tscn" id="2_hk1ly"]
-[ext_resource type="PackedScene" uid="uid://dtgn6p0ryexey" path="res://Scenes/Pieces/pawn.tscn" id="3_mtcfr"]
-[ext_resource type="PackedScene" uid="uid://cqugj710lvsl6" path="res://Scenes/Pieces/king.tscn" id="5_l6ans"]
+[ext_resource type="Script" path="res://Scripts/UI/points.gd" id="5_mkywt"]
 
 [node name="Main" type="Node2D"]
 texture_filter = 1
@@ -22,8 +22,19 @@ y_sort_enabled = true
 [node name="Queen" parent="Pieces" instance=ExtResource("2_hk1ly")]
 position = Vector2(125, 215)
 
-[node name="Pawn" parent="Pieces" instance=ExtResource("3_mtcfr")]
-position = Vector2(95, 185)
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="King" parent="Pieces" instance=ExtResource("5_l6ans")]
-position = Vector2(125, 95)
+[node name="Points" type="RichTextLabel" parent="UI"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 75.0
+offset_bottom = 23.0
+theme_override_fonts/normal_font = ExtResource("2_gwxor")
+theme_override_font_sizes/normal_font_size = 10
+text = "Points: 0"
+script = ExtResource("5_mkywt")

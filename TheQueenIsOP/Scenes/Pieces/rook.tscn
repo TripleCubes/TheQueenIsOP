@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bte1ymsodre1y"]
 
 [ext_resource type="Script" path="res://Scripts/Pieces/rook.gd" id="1_fbmvh"]
-[ext_resource type="Texture2D" uid="uid://bqipqs8avxdbj" path="res://Assets/Pieces/rook.png" id="1_n876h"]
+[ext_resource type="Texture2D" uid="uid://bqipqs8avxdbj" path="res://Assets/Sprites/Pieces/rook.png" id="1_n876h"]
 
 [node name="Rook" type="Node2D"]
 texture_filter = 1

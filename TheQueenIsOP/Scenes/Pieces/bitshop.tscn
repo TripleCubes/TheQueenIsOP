@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dqdtjs26tcwsk"]
 
 [ext_resource type="Script" path="res://Scripts/Pieces/bitshop.gd" id="1_cbaj8"]
-[ext_resource type="Texture2D" uid="uid://cu4nykat56ed2" path="res://Assets/Pieces/bitshop.png" id="2_j0fyk"]
+[ext_resource type="Texture2D" uid="uid://cu4nykat56ed2" path="res://Assets/Sprites/Pieces/bitshop.png" id="2_j0fyk"]
 
 [node name="Bitshop" type="Node2D"]
 texture_filter = 1

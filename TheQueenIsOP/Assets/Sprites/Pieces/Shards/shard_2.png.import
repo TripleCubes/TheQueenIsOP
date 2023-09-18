@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqipqs8avxdbj"
-path="res://.godot/imported/rook.png-b48382cbf9a376ced2a4c2b108aa21dc.ctex"
+uid="uid://cyx6wgcnj5kgm"
+path="res://.godot/imported/shard_2.png-8dd0b6b935bc86dcdd34729e3428698d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Pieces/rook.png"
-dest_files=["res://.godot/imported/rook.png-b48382cbf9a376ced2a4c2b108aa21dc.ctex"]
+source_file="res://Assets/Sprites/Pieces/Shards/shard_2.png"
+dest_files=["res://.godot/imported/shard_2.png-8dd0b6b935bc86dcdd34729e3428698d.ctex"]
 
 [params]
 

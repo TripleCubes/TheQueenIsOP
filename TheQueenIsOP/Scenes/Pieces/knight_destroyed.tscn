@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwngd1iarp4i6"]
 
-[ext_resource type="Texture2D" uid="uid://wsamnjdh3va7" path="res://Assets/Pieces/knight_destroyed.png" id="1_ij67g"]
+[ext_resource type="Texture2D" uid="uid://wsamnjdh3va7" path="res://Assets/Sprites/Pieces/knight_destroyed.png" id="1_ij67g"]
 [ext_resource type="Script" path="res://Scripts/Pieces/destroyed_piece.gd" id="1_n4j2b"]
 
 [node name="KnightDestroyed" type="Node2D"]

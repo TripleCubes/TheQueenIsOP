@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqugj710lvsl6"]
 
 [ext_resource type="Script" path="res://Scripts/Pieces/king.gd" id="1_h2lf6"]
-[ext_resource type="Texture2D" uid="uid://db5q2jy0n1ksr" path="res://Assets/Pieces/king.png" id="1_vvieg"]
+[ext_resource type="Texture2D" uid="uid://db5q2jy0n1ksr" path="res://Assets/Sprites/Pieces/king.png" id="1_vvieg"]
 
 [node name="King" type="Node2D"]
 texture_filter = 1

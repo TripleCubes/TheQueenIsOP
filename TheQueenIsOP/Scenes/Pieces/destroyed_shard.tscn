@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cncesh67grrj1"]
 
 [ext_resource type="Script" path="res://Scripts/Pieces/destroyed_shard.gd" id="1_g2dni"]
-[ext_resource type="Texture2D" uid="uid://caxesk68adiow" path="res://Assets/Pieces/Shards/shard_0.png" id="2_pydsy"]
-[ext_resource type="Texture2D" uid="uid://bulxl6m64y762" path="res://Assets/Pieces/Shards/shard_1.png" id="3_mridt"]
-[ext_resource type="Texture2D" uid="uid://cyx6wgcnj5kgm" path="res://Assets/Pieces/Shards/shard_2.png" id="4_pjf0l"]
+[ext_resource type="Texture2D" uid="uid://caxesk68adiow" path="res://Assets/Sprites/Pieces/Shards/shard_0.png" id="2_pydsy"]
+[ext_resource type="Texture2D" uid="uid://bulxl6m64y762" path="res://Assets/Sprites/Pieces/Shards/shard_1.png" id="3_mridt"]
+[ext_resource type="Texture2D" uid="uid://cyx6wgcnj5kgm" path="res://Assets/Sprites/Pieces/Shards/shard_2.png" id="4_pjf0l"]
 
 [node name="DestroyedShard" type="Node2D"]
 texture_filter = 1

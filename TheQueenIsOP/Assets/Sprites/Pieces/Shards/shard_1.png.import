@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk1ys6nydvk6w"
-path="res://.godot/imported/knight.png-7b6160845aa8f9529107f2fb78b2975e.ctex"
+uid="uid://bulxl6m64y762"
+path="res://.godot/imported/shard_1.png-83b8fe6afe0d6973bad60e03650efad2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Pieces/knight.png"
-dest_files=["res://.godot/imported/knight.png-7b6160845aa8f9529107f2fb78b2975e.ctex"]
+source_file="res://Assets/Sprites/Pieces/Shards/shard_1.png"
+dest_files=["res://.godot/imported/shard_1.png-83b8fe6afe0d6973bad60e03650efad2.ctex"]
 
 [params]
 

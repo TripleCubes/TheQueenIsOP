@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caxesk68adiow"
-path="res://.godot/imported/shard_0.png-88727245d10b2d403b7cc67c7d4f4925.ctex"
+uid="uid://cwtrfadw17kfh"
+path="res://.godot/imported/pawn.png-c30f6e5e7a2279d1633c643bafdf54d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Pieces/Shards/shard_0.png"
-dest_files=["res://.godot/imported/shard_0.png-88727245d10b2d403b7cc67c7d4f4925.ctex"]
+source_file="res://Assets/Sprites/Pieces/pawn.png"
+dest_files=["res://.godot/imported/pawn.png-c30f6e5e7a2279d1633c643bafdf54d3.ctex"]
 
 [params]
 

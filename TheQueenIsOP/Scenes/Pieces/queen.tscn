@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://e4ec5fgf272l"]
 
 [ext_resource type="Script" path="res://Scripts/Pieces/queen.gd" id="1_5xk8n"]
-[ext_resource type="Texture2D" uid="uid://bqutk5gghwl8s" path="res://Assets/Pieces/queen.png" id="1_w1ood"]
+[ext_resource type="Texture2D" uid="uid://bqutk5gghwl8s" path="res://Assets/Sprites/Pieces/queen.png" id="1_w1ood"]
 
 [node name="Queen" type="Node2D"]
 texture_filter = 1

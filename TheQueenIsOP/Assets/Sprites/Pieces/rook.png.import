@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu4nykat56ed2"
-path="res://.godot/imported/bitshop.png-d8865845de29de52a62f61be170ae8a0.ctex"
+uid="uid://bqipqs8avxdbj"
+path="res://.godot/imported/rook.png-1e6e54cd136aa4fa47fcc2da26310b3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Pieces/bitshop.png"
-dest_files=["res://.godot/imported/bitshop.png-d8865845de29de52a62f61be170ae8a0.ctex"]
+source_file="res://Assets/Sprites/Pieces/rook.png"
+dest_files=["res://.godot/imported/rook.png-1e6e54cd136aa4fa47fcc2da26310b3e.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnx8ipq6mf33l"
-path="res://.godot/imported/pawn_destroyed.png-cd7dd6e03db1f47909a2480138d764c3.ctex"
+uid="uid://d4isih3jfbjpv"
+path="res://.godot/imported/king_destroyed.png-d8a036199b19ffe5be527750d3e370d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Pieces/pawn_destroyed.png"
-dest_files=["res://.godot/imported/pawn_destroyed.png-cd7dd6e03db1f47909a2480138d764c3.ctex"]
+source_file="res://Assets/Sprites/Pieces/king_destroyed.png"
+dest_files=["res://.godot/imported/king_destroyed.png-d8a036199b19ffe5be527750d3e370d2.ctex"]
 
 [params]
 

@@ -6,6 +6,7 @@ const MOVE_HEIGHT: float = 10
 const scene_destroyed_shard: PackedScene = preload("res://Scenes/Pieces/destroyed_shard.tscn")
 const scene_destroyed_shard_queen: PackedScene = preload("res://Scenes/Pieces/destroyed_shard_queen.tscn")
 var scene_destroyed: PackedScene
+var points: int = 0
 
 enum Moveable {
 	NOT_MOVEABLE,
@@ -78,6 +79,8 @@ func _destroy_pieces(next_board_pos: Vector2i, dir: Vector2, dash: bool) -> void
 		if piece != null:
 			var timer: = get_tree().create_timer(Consts.MOVE_TIME + Consts.MOVE_HOLD_TIME + Consts.MOVE_PLACE_DOWN_TIME - 0.1)
 			timer.timeout.connect(func():
+				if self == GlobalVars.queen:
+					GlobalVars.points.points += piece.points
 				piece.destroyed_animation()
 			)
 		return
@@ -93,11 +96,15 @@ func _destroy_pieces(next_board_pos: Vector2i, dir: Vector2, dash: bool) -> void
 		if piece.board_pos == next_board_pos:
 			var timer: = get_tree().create_timer(Consts.DASH_TIME / step_count * i)
 			timer.timeout.connect(func():
+				if self == GlobalVars.queen:
+					GlobalVars.points.points += piece.points
 				piece.destroyed_animation_dir(dir, false)
 			)
 		else:
 			var timer: = get_tree().create_timer(Consts.DASH_TIME / step_count * i)
 			timer.timeout.connect(func():
+				if self == GlobalVars.queen:
+					GlobalVars.points.points += piece.points
 				piece.destroyed_animation_dir(dir, true)
 			)
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dasm4qskf5vx3"]
 
 [ext_resource type="Script" path="res://Scripts/Pieces/destroyed_piece.gd" id="1_kckja"]
-[ext_resource type="Texture2D" uid="uid://dnx8ipq6mf33l" path="res://Assets/Pieces/pawn_destroyed.png" id="2_eokvd"]
+[ext_resource type="Texture2D" uid="uid://dnx8ipq6mf33l" path="res://Assets/Sprites/Pieces/pawn_destroyed.png" id="2_eokvd"]
 
 [node name="PawnDestroyed" type="Node2D"]
 texture_filter = 1

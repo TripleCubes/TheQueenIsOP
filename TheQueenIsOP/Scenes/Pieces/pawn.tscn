@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dtgn6p0ryexey"]
 
 [ext_resource type="Script" path="res://Scripts/Pieces/pawn.gd" id="1_bcthk"]
-[ext_resource type="Texture2D" uid="uid://cwtrfadw17kfh" path="res://Assets/Pieces/pawn.png" id="1_kbvbj"]
+[ext_resource type="Texture2D" uid="uid://cwtrfadw17kfh" path="res://Assets/Sprites/Pieces/pawn.png" id="1_kbvbj"]
 
 [node name="Pawn" type="Node2D"]
 texture_filter = 1
