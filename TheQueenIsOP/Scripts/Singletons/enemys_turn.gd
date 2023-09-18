@@ -7,10 +7,10 @@ func decide() -> void:
 
 	var timer: = get_tree().create_timer(move_result.moved_time + 0.2)
 	timer.timeout.connect(func():
-		_spawn(3 - move_result.moved_count)
+		_spawn(3 - move_result.piece_count)
 	)
 
-	var timer_0: = get_tree().create_timer(move_result.moved_time + 0.1 * (3 - move_result.moved_count) + 0.8 + 0.2)
+	var timer_0: = get_tree().create_timer(move_result.moved_time + 0.1 * (3 - move_result.piece_count) + 0.8 + 0.2)
 	timer_0.timeout.connect(func():
 		GlobalVars.queens_turn = true
 	)
@@ -33,7 +33,7 @@ func _move(amount: int) -> Dictionary:
 	moveable_list.shuffle()
 	combined_list = can_take_queen_list + moveable_list
 
-	amount = min(amount, moveable_list.size())
+	amount = min(amount, combined_list.size())
 	
 	var move_time: = (Consts.MOVE_TIME 
 						+ Consts.MOVE_PLACE_DOWN_TIME 
@@ -48,7 +48,7 @@ func _move(amount: int) -> Dictionary:
 		)
 
 	return {
-		moved_count = amount,
+		piece_count = piece_list.size(),
 		moved_time = move_time * amount,
 	}
 

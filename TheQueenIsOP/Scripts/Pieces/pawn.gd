@@ -1,6 +1,8 @@
 extends Piece
 
 const scene_rook: PackedScene = preload("res://Scenes/Pieces/rook.tscn")
+const scene_bitshop: PackedScene = preload("res://Scenes/Pieces/bitshop.tscn")
+const scene_knight: PackedScene = preload("res://Scenes/Pieces/knight.tscn")
 
 func _ready():
 	scene_destroyed = preload("res://Scenes/Pieces/pawn_destroyed.tscn")
@@ -36,9 +38,14 @@ func move() -> void:
 											+ 0.3)
 	timer.timeout.connect(func():
 		if board_pos.y == 6:
-			var rook: = scene_rook.instantiate()
-			rook.position = GlobalFunctions.board_pos_to_scene_pos(self.board_pos)
-			GlobalVars.pieces.add_child(rook)
+			var piece_list: = [
+				scene_rook,
+				scene_bitshop,
+				scene_knight,
+			]
+			var promoted_to: Piece = piece_list[randi_range(0, 2)].instantiate()
+			promoted_to.position = GlobalFunctions.board_pos_to_scene_pos(self.board_pos)
+			GlobalVars.pieces.add_child(promoted_to)
 
 			var timer_0: = get_tree().create_timer(0.18)
 			timer_0.timeout.connect(func():

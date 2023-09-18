@@ -24,7 +24,7 @@ func moveable() -> Moveable:
 	return Moveable.NOT_MOVEABLE
 
 func destroyed_animation() -> void:
-	for i in 5:
+	for i in randi_range(4, 6):
 		var destroyed_shard: DestroyedShard
 		if self == GlobalVars.queen:
 			destroyed_shard = scene_destroyed_shard_queen.instantiate()
@@ -44,7 +44,7 @@ func destroyed_animation_dir(dir: Vector2, leave_destroyed_piece: bool) -> void:
 		destroyed_piece.position = self.position
 		GlobalVars.pieces.add_child(destroyed_piece)
 
-	for i in 5:
+	for i in randi_range(4, 6):
 		var destroyed_shard = scene_destroyed_shard.instantiate()
 		destroyed_shard.h = randf_range(10, 20)
 		destroyed_shard.dir = dir.rotated(deg_to_rad(randf_range(-30, 30)))
