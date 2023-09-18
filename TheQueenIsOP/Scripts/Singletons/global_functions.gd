@@ -45,3 +45,18 @@ func camera_shake(dir: Vector2) -> void:
 	var tween: = get_tree().create_tween()
 	tween.tween_property(GlobalVars.camera, "position", GlobalVars.camera.position + dir * SHAKE_DIST, SHAKE_FORWARD_TIME)
 	tween.tween_property(GlobalVars.camera, "position", Vector2(0, 0), SHAKE_BACKWARD_TIME).set_trans(Tween.TRANS_SINE)
+
+func restart_game() -> void:
+	GlobalVars.queens_turn = true
+	GlobalVars.num_moved = 0
+	GlobalVars.points.points = 0
+	GlobalVars.op_mode_bar.progress = 0
+	
+	for node in GlobalVars.pieces.get_children():
+		if node == GlobalVars.queen:
+			continue
+		
+		node.queue_free()
+
+	GlobalVars.queen.position = Vector2(125, 215)
+	GlobalVars.queen.op_mode = false

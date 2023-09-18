@@ -10,7 +10,7 @@ extends Node
 @onready var pause_menu: Node2D = get_node("/root/Main/UI/PauseMenu")
 
 var queens_turn: = true
-var num_moved: int = 20
+var num_moved: int = 0
 var game_paused: bool = false:
 	get:
 		return game_paused
