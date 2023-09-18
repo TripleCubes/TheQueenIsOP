@@ -83,9 +83,9 @@ func _move(amount: int) -> Dictionary:
 
 func _spawn(amount: int) -> void:
 	var total_point_spawn: = _get_total_points_spawn()
+	var availabe_spawn_pos_list: = _get_available_spawn_pos_list()
 
 	for i in amount:
-		var availabe_spawn_pos_list: = _get_available_spawn_pos_list()
 		if availabe_spawn_pos_list.size() == 0:
 			return
 		var pos_index: = randi_range(0, availabe_spawn_pos_list.size() - 1)
