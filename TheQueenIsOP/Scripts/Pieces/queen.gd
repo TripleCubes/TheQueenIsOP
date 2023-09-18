@@ -31,6 +31,7 @@ func queen_dash(in_board_pos: Vector2i) -> void:
 	_move_animation_dash(in_board_pos)
 
 func _queen_move_shared(time_until_enemys_turn: float) -> void:
+	GlobalVars.num_moved += 1
 	GlobalVars.queens_turn = false
 
 	var timer_0: = get_tree().create_timer(time_until_enemys_turn)

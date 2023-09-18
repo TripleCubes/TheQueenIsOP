@@ -6,17 +6,41 @@ const scene_bitshop: PackedScene = preload("res://Scenes/Pieces/bitshop.tscn")
 const scene_knight: PackedScene = preload("res://Scenes/Pieces/knight.tscn")
 const scene_king: PackedScene = preload("res://Scenes/Pieces/king.tscn")
 
+@onready var piece_scene_list: = [
+	{
+		scene = scene_pawn,
+		points = PointsList.points_list.pawn,	
+	},
+	{
+		scene = scene_rook,
+		points = PointsList.points_list.rook,	
+	},
+	{
+		scene = scene_bitshop,
+		points = PointsList.points_list.bitshop,		
+	},
+	{
+		scene = scene_knight,
+		points = PointsList.points_list.knight,		
+	},
+	{
+		scene = scene_king,
+		points = PointsList.points_list.king,
+	},
+]
+
 var spawn_order: = [3, 1, 5, 2, 4, 0, 6,]
 
 func decide() -> void:
-	var move_result: = _move(3)
+	var num_spawn: = _get_num_spawn()
+	var move_result: = _move(num_spawn)
 
 	var timer: = get_tree().create_timer(move_result.moved_time + 0.2)
 	timer.timeout.connect(func():
-		_spawn(3 - move_result.piece_count)
+		_spawn(num_spawn - move_result.piece_count)
 	)
 
-	var timer_0: = get_tree().create_timer(move_result.moved_time + 0.1 * (3 - move_result.piece_count) + 0.8 + 0.2)
+	var timer_0: = get_tree().create_timer(move_result.moved_time + 0.1 * (num_spawn - move_result.piece_count) + 0.8 + 0.2)
 	timer_0.timeout.connect(func():
 		GlobalVars.queens_turn = true
 	)
@@ -59,6 +83,8 @@ func _move(amount: int) -> Dictionary:
 	}
 
 func _spawn(amount: int) -> void:
+	var total_point_spawn: = _get_total_points_spawn()
+
 	var spawn_order_index: int = 0
 	for i in amount:
 		var pos = Vector2i(spawn_order[spawn_order_index], 0)
@@ -72,9 +98,12 @@ func _spawn(amount: int) -> void:
 
 		var timer: = get_tree().create_timer(i * 0.1)
 		timer.timeout.connect(func():
-			var pawn: Piece = scene_pawn.instantiate()
-			pawn.position = GlobalFunctions.board_pos_to_scene_pos(pos)
-			GlobalVars.pieces.add_child(pawn)
+			var piece_scene_index: = randi_range(0, 4)
+			while piece_scene_list[piece_scene_index].points > total_point_spawn:
+				piece_scene_index = randi_range(0, 4)
+			var piece_spawn: Piece = piece_scene_list[piece_scene_index].scene.instantiate()
+			piece_spawn.position = GlobalFunctions.board_pos_to_scene_pos(pos)
+			GlobalVars.pieces.add_child(piece_spawn)
 		)
 		spawn_order_index += 1
 		if spawn_order_index == 7:
@@ -93,3 +122,10 @@ func _get_all_enemy_pieces() -> Array:
 		result.append(piece)
 
 	return result
+
+func _get_num_spawn() -> int:
+	var num_spawn: float = float(GlobalVars.num_moved) / 8
+	return max(1, min(7, floor(num_spawn)))
+
+func _get_total_points_spawn() -> int:
+	return floor(float(GlobalVars.num_moved) / 3 + 1)

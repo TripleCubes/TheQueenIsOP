@@ -2,7 +2,7 @@ extends Piece
 
 func _ready():
 	scene_destroyed = preload("res://Scenes/Pieces/knight_destroyed.tscn")
-	points = PointList.point_list.knight
+	points = PointsList.points_list.knight
 	_spawn_animation()
 
 func move() -> void:

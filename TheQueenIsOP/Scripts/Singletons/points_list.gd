@@ -1,6 +1,6 @@
 extends Node
 
-var point_list: = {
+var points_list: = {
 	pawn = 1,
 	knight = 3,
 	bitshop = 3,

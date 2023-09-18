@@ -7,3 +7,4 @@ extends Node
 @onready var points: RichTextLabel = get_node("/root/Main/UI/Points")
 
 var queens_turn: = true
+var num_moved: int = 0

@@ -22,7 +22,7 @@ Consts="*res://Scripts/Singletons/consts.gd"
 GlobalFunctions="*res://Scripts/Singletons/global_functions.gd"
 GlobalVars="*res://Scripts/Singletons/global_vars.gd"
 EnemysTurn="*res://Scripts/Singletons/enemys_turn.gd"
-PointList="*res://Scripts/Singletons/point_list.gd"
+PointsList="*res://Scripts/Singletons/points_list.gd"
 
 [display]
 
